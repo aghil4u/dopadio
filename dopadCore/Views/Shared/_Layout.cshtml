@@ -8,35 +8,42 @@
 
     <environment names="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+          <link rel="stylesheet" href="~/css/mdb.min.css" />
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
     <environment names="Staging,Production">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+           <link rel="stylesheet" href="~/css/mdb.min.css" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
     @Html.Raw(JavaScriptSnippet.FullScript)
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <body style="background-color: whitesmoke; width: 100%">
+    <nav class="navbar navbar-toggleable-md navbar-dark fixed-top scrolling-navbar">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">dopadCore</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href=@Url.Action("Index","Home")>
+                <img class="navicon" src="~/images/logoframelessWhite.png" height="32" width="auto"/>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav1" style="margin-left: 30px">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href=@Url.Action("Index","Works")>WORKS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">PEOPLE</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">SOLUTIONS</a>
+                    </li>
                 </ul>
-                @await Html.PartialAsync("_LoginPartial")
+                                @await Html.PartialAsync("_LoginPartial")
+
             </div>
         </div>
     </nav>

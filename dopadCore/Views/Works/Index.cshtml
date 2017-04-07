@@ -1,0 +1,155 @@
+@model IEnumerable<dopadCore.Models.Work>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.PostingUserID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PostingDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Location)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FromDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Expiry)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.WorkType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SkillLevel)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.WorkCategory)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AlternateContact)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RenumerationType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RenumerationAmount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ImgUrl)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ImgUrl2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ImgUrl3)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ImgUrl4)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ImgUrl5)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Tags)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Latitude)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Longitude)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostingUserID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostingDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FromDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Expiry)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SkillLevel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkCategory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AlternateContact)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RenumerationType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RenumerationAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImgUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImgUrl2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImgUrl3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImgUrl4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImgUrl5)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tags)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Latitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Longitude)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

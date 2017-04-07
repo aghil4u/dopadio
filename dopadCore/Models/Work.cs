@@ -35,6 +35,14 @@ namespace dopadCore.Models
         public string RenumerationType { get; set; }
         public string RenumerationAmount { get; set; }
         public string ImgUrl { get; set; }
+                public string ImgUrl2 { get; set; }
+
+        public string ImgUrl3 { get; set; }
+
+        public string ImgUrl4 { get; set; }
+
+        public string ImgUrl5 { get; set; }
+
         public string Tags { get; set; }
         public Nullable<decimal> Latitude { get; set; }
         public Nullable<decimal> Longitude { get; set; }

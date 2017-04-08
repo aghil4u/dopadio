@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -7,11 +8,15 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using dopadCore.Data;
 using dopadCore.Models;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 
 namespace dopadCore.Controllers
 {
     public class WorksController : Controller
     {
+        private IHostingEnvironment Environment { get; set; }
+
         private readonly ApplicationDbContext _context;
 
         public WorksController(ApplicationDbContext context)
@@ -133,7 +138,7 @@ namespace dopadCore.Controllers
 
             return View(work);
         }
-
+    
         // POST: Works/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -149,5 +154,20 @@ namespace dopadCore.Controllers
         {
             return _context.Work.Any(e => e.Id == id);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Upload(IFormFile file)
+        {
+            var uploads = Path.Combine(Environment.WebRootPath, "uploads");
+            if (file.Length > 0)
+            {
+                using (var fileStream = new FileStream(Path.Combine(uploads, file.FileName), FileMode.Create))
+                {
+                    await file.CopyToAsync(fileStream);
+                }
+            }
+            return null;
+        }
+
     }
 }

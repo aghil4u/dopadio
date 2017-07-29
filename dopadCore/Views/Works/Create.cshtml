@@ -5,90 +5,98 @@
 }
 
 <link rel="stylesheet" href="~/css/dropzone.css" />
-<div style="background: #1581ee; bottom: 0; height: 100%; left: 0; position: absolute; right: 0; top: 0;">
+<div style="background: #1581ee; bottom: 0; height: 100%; left: 0; position: relative; right: 0; top: 0; padding-top:100px; padding-bottom:100px">
 
 
-    <form asp-action="Create">
         <div class="form-horizontal">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="container">
+            <div class="container" >
 
-                <div class="row">
+                <div class="row" >
                     <div class="col-sm-12 col-md-10 col-lg-8 offset-lg-2 offset-md-1 offset-sm-0">
 
+                        <form asp-action="Create" id="WorkForm">
 
-                        <div class="supercard postingCard">
+                            <div class="supercard postingCard">
 
-                            <input placeholder="Title of the Listing" class="TitleInput" name="Work.Title" id="Work_Title" />
-                        </div>
-
-                        <div class="supercard postingCard">
-
-                            <textarea id="Work_Description" placeholder="Explain your Requirement" class="DescriptionInput" name="Work.Description"> </textarea>
-                        </div>
-
-                        <div class="supercard postingCard">
-
-                            <div id="dvMap" class="MapView"> </div>
-                            <input class="locationText" id="locationInput" name="Work.Location" />
-                        </div>
-
-
-                        <div class="supercard postingCard">
-
-                            <div id="dropzone" style="height:200px;">
-                                <form action="/Home/Upload" class="dropzone needsclick dz-clickable" id="uploader">
-                                    <div class="dz-message needsclick">
-                                        Drop files here or click to upload.<br>
-                                    </div>
-                                </form>
+                                <input placeholder="Title of the Listing" class="TitleInput" name="Work.Title" id="Work_Title" />
                             </div>
 
+                            <div class="supercard postingCard">
 
-                        </div>
-
-
-                        <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-
-                                <input id="Longitude" name="Work.Longitude" type="hidden" value="" />
-                                <input id="Latitude" name="Work.Latitude" type="hidden" value="" />
-                                <input id="imgUrl" name="Work.imgUrl" type="hidden" value="" />
-
-                                <input type="submit" value="Create" class="btn btn-default" />
+                                <textarea id="Work_Description" placeholder="Explain your Requirement" class="DescriptionInput" name="Work.Description"> </textarea>
                             </div>
-                        </div>
+
+                            <div class="supercard postingCard">
+
+                                <div id="dvMap" class="MapView"> </div>
+                                <input class="locationText" id="locationInput" name="Work.Location" />
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+
+                                    <input id="Longitude" name="Work.Longitude" type="hidden" value="" />
+                                    <input id="Latitude" name="Work.Latitude" type="hidden" value="" />
+                                    <input id="imgUrl" name="Work.imgUrl" type="hidden" value="" />
+
+                                  
+                                </div>
+                            </div>
+
+                        </form>
+
+                            <div class="supercard postingCard">
+
+                                <div id="dropzone" style="height:200px;">
+                                    <form action="/Home/Upload" class="dropzone needsclick dz-clickable" id="uploader">
+                                        <div class="dz-message needsclick">
+                                            Drop files here or click to upload.<br>
+                                        </div>
+                                    </form>
+                                </div>
 
 
-                        <div>
-                            @Html.ActionLink("Back to List", "Index")
-                        </div>
+                            </div>
+
+                        <input type="submit" value="Create" form="WorkForm" class="btn btn-default" />
+
+                     
 
 
-                    </div>
+</div>
 
                 </div>
 
             </div>
-    </form>
+
+            </div>
+
 
 </div>
 <div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
 
+<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+        asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+        asp-fallback-test="window.jQuery"
+        crossorigin="anonymous"
+        integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
+</script>
+
+
 
 <script src="~/js/dropzone.js" asp-append-version="true"></script>
 
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCJVxdbYTt-fuaInkkAXsNpkwczrHkS8Q&sensor=false"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDT4E8rKVKOrnDgGOmqMj4ranuI14EX0Mk&sensor=false"></script>
 
 <script type="text/javascript">
 
-    $(document).ready(function () {
+    $(function () {
         Dropzone.options.uploader = {
             paramName: "file",
             maxFilesize: 2,

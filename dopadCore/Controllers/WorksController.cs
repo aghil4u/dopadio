@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using dopadCore.Data;
 using dopadCore.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace dopadCore.Controllers
 {
@@ -44,6 +45,7 @@ namespace dopadCore.Controllers
         }
 
         // GET: Works/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
